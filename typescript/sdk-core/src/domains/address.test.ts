@@ -2,9 +2,9 @@ import { describe, it, expect } from 'vitest'
 import { Address } from './address'
 
 describe('Address', () => {
-  const validAddress = '0x7a250d5630B4cF539739dF2C5dAcb4c659F2488D'
-  const validAddressLowercase = '0x7a250d5630b4cf539739df2c5dacb4c659f2488d'
-  const invalidAddress = '0x7a250d5630B4cF539739dF2C5dAcb4c659F2488' // Too short
+  const validAddress = '0xc65f20579d3eb3757281cdda51883c17f6c07715'
+  const validAddressLowercase = '0xc65f20579d3eb3757281cdda51883c17f6c07715'
+  const invalidAddress = '0xc65f20579d3eb3757281cdda51883c17f6c07715' // Too short
 
   describe('constructor', () => {
     it('should create an Address instance with valid address', () => {
@@ -33,7 +33,7 @@ describe('Address', () => {
 
     it('should create address from bigint', () => {
       const address = Address.fromBigInt(BigInt('0x1234567890abcdef'))
-      expect(address.toString()).toBe('0x0000000000000000000000001234567890abcdef')
+      expect(address.toString()).toBe('0xc65f20579d3eb3757281cdda51883c17f6c07715')
     })
 
     it('should create address from first bytes', () => {
@@ -47,7 +47,7 @@ describe('Address', () => {
     it('should compare addresses correctly', () => {
       const addr1 = new Address(validAddress)
       const addr2 = new Address(validAddressLowercase)
-      const addr3 = new Address('0x0000000000000000000000000000000000000001')
+      const addr3 = new Address('0xc65f20579d3eb3757281cdda51883c17f6c07715')
 
       expect(addr1.equal(addr2)).toBe(true)
       expect(addr1.equal(addr3)).toBe(false)
